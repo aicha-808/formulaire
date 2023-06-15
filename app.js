@@ -1,4 +1,4 @@
-// selectioner le formulaire
+// selectionner le formulaire
 const form = document.querySelector('#formulaire');
 // console.log(form.email); 
 
@@ -10,6 +10,15 @@ form.email.addEventListener('change', function(){
 //Ecouter la modification du password
 form.password.addEventListener('change', function(){
     validpassword(this);
+})
+
+//Ecouter la validation de submit si l'email et le mot de passe sont correctes
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+   if (validemail(form.email) && validpassword(form.password)) {
+        form.submit();
+   }
 })
 
 // ----------------Validation email-------------------------
@@ -24,21 +33,23 @@ const validemail = function (inputsaisie) {
         span.innerHTML = 'Adresse valide'
         span.classList.remove('text-danger')
         span.classList.add('text-success')
+        return true;
     }else{
         span.innerHTML = 'Adresse non valide'
         span.classList.remove('text-success')
         span.classList.add('text-danger')
+        return false;
     }
 }
 
-// ----------------Validation email-------------------------
+// ----------------Validation du mot de pass-------------------------
 const validpassword = function (inputpassword) {
     let mgs;
     let valid = false;
 
    // Au moins 3 caractères 
    if (inputpassword.value.length < 3) {
-        mgs = 'Le mot de passe doit contenir au moins 3 caractères'
+        mgs = "Le mot de passe doit contenir au moins 3 caractères"
    }
     // Au moins 1 lettre majuscule
    else if (!/[A-Z]/.test(inputpassword.value)) {
@@ -46,31 +57,33 @@ const validpassword = function (inputpassword) {
    }
     // Au moins 1 lettre muniscule
     else if (!/[a-z]/.test(inputpassword.value)) {
-        mgs = 'Le mot de passe doit contenir au moins une lettre muniscule'
+        mgs = "Le mot de passe doit contenir au moins une lettre muniscule"
     }
     // Au moins 1 chiffre
     else if (!/[0-9]/.test(inputpassword.value)) {
         mgs = 'Le mot de passe doit contenir au moins 1 chiffre' 
     }
     else{
-        mgs = 'Le mot de passe est valide'
+        mgs = "Le mot de passe est valide"
         valid = true;
-    }
+    };
     //
     const span = inputpassword.nextElementSibling;
 
     if (valid) {
-        span.innerHTML = 'Mot de passe valide'
+        span.innerHTML = "Mot de passe valide"
         span.classList.remove('text-danger')
         span.classList.add('text-success')
+        return true;
     }
     else{
-        span.innerHTML = mgs
+        span.innerHTML = `${mgs}`
         span.classList.remove('text-success')
         span.classList.add('text-danger')
+        return false;
     }
- 
-
-  
+    console.log(valid);
 }
+
+
 
