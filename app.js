@@ -1,4 +1,4 @@
-// selectionner le formulaire
+// selectioner le formulaire
 const form = document.querySelector('#formulaire');
 // console.log(form.email); 
 
