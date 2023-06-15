@@ -17,31 +17,34 @@
 </head>
 <body>
     <div class="container pt-5">
-        <div class="row">
-            <h1 class="text-center bg-warning text-uppercase p-1">Foumulaire d'inscription en JS.</h1>
-            <div class="col-8 mx-auto">
-                <form action="" method="post" id="formulaire" >
+        <div class="row ">
+            
+            <div class="col-8 mx-auto bg-warning p-5 rounded-3">
+                <h1 class="text-center  text-uppercase p-1">Connectez-Vous !</h1>
+                <form action="" method="post" id="formulaire" class="mt-3" >
                     <!-- Email--- -->
                     <div class="mb-3">
-                      <label for="email" class="form-label" >Email </label>
-                      <input type="text" class="form-control" name="email" >
+                      <label for="email" class="form-label fw-semibold" >E-mail </label>
+                      <input type="text" class="form-control  border-secondary border-3" name="email" >
                       <span></span>
                     </div>
 
                     <!-- password -->
                     <div class="mb-3">
-                      <label for="password" class="form-label">Mot de Passe</label>
-                      <input type="text" class="form-control" name="password">
+                      <label for="password" class="form-label fw-semibold">Mot de Passe</label>
+                      <input type="text" class="form-control border-secondary border-3" name="password">
                       <span></span>
                     </div>
                     
                     <!-- submit---- -->
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-secondary btn-block">Connexion</button>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-secondary btn-lg">Connexion</button>
                     </div> 
                 </form>
             </div>
         </div>
+      
+      
     </div>
       
    <script src="app.js"></script> 
